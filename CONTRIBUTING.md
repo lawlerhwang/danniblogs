@@ -44,18 +44,18 @@ docs: update README with setup instructions
 
 ## Release Process
 
+Releases are **fully automated**:
+
 1. Work on feature branches
 2. Create PR with conventional commit format title
 3. Squash and merge PR to `main`
-4. When ready to release, run:
-   ```bash
-   npm run release        # Defaults to patch
-   # or
-   npm run release:patch  # Bug fixes
-   npm run release:minor  # New features
-   npm run release:major  # Breaking changes
-   ```
-5. Review the generated CHANGELOG.md
-6. Push the release: `git push --follow-tags origin main`
-7. Create a GitHub release from the tag
+4. Release is created automatically based on commit type:
+   - `feat:` → minor version bump
+   - `fix:`, `perf:`, `refactor:` → patch version bump
+   - `BREAKING CHANGE:` → major version bump
+   - Other types (`docs:`, `chore:`, etc.) → no release
+
+### Manual Release
+
+To manually trigger a release, go to **Actions** → **Manual Release** → **Run workflow** and select the bump type (patch/minor/major).
 
