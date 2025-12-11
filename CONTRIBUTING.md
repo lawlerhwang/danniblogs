@@ -58,3 +58,4 @@ docs: update README with setup instructions
 5. Review the generated CHANGELOG.md
 6. Push the release: `git push --follow-tags origin main`
 7. Create a GitHub release from the tag
+
