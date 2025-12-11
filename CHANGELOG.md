@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/MildTomato/summersmuir/compare/v0.3.0...v0.4.0) (2025-12-11)
+
+
+### Features
+
+* rolodex index concept ([#6](https://github.com/MildTomato/summersmuir/issues/6)) ([a3bd5fa](https://github.com/MildTomato/summersmuir/commit/a3bd5faa7020c3a79d3329a65d80bc75b1a3984f))
+
 ## [0.3.0](https://github.com/MildTomato/summersmuir/compare/v0.2.0...v0.3.0) (2025-12-11)
 
 
