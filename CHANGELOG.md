@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/MildTomato/summersmuir/compare/v0.2.0...v0.3.0) (2025-12-11)
+
+
+### Features
+
+* add header component and improve page layouts ([f4979ad](https://github.com/MildTomato/summersmuir/commit/f4979ade596239e46ac18225153b4f34de1cb67a))
+
+
+### Bug Fixes
+
+* update to softprops/action-gh-release@v2 ([8108386](https://github.com/MildTomato/summersmuir/commit/81083868e2ed101ec0d1174f8f9d81fc7ff11e88))
+
 ## [0.2.0](https://github.com/MildTomato/summersmuir/compare/v0.1.0...v0.2.0) (2025-12-11)
 
 
