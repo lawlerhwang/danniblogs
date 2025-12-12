@@ -111,6 +111,7 @@ process_markdown_files() {
                 {
                     echo "---"
                     echo "title: $(basename "$mdx_file" .mdx)"
+                    echo "# slug: your-english-slug-here"
                     echo "date: $(date +'%Y-%m-%d')"
                     echo "image: /blog-images/$image_name"
                     echo "---"

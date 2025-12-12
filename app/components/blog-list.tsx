@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+
+import { formatDate } from '@/lib/format';
 
 interface Post {
   slug: string;
@@ -63,7 +64,7 @@ export function BlogList({ posts }: BlogListProps) {
       {/* Posts list */}
       <div className="divide-y divide-border-color">
         {posts.map((post, index) => (
-          <div key={post.slug}>
+          <div key={`${index}-${post.slug || 'no-slug'}`}>
             <Link
               href={`/blog/${post.slug}`}
               className="block group"
@@ -75,11 +76,7 @@ export function BlogList({ posts }: BlogListProps) {
                   {/* Date column */}
                   {post.date && (
                     <time className="text-xs text-faded tabular-nums w-20 shrink-0">
-                      {new Date(post.date).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric'
-                      })}
+                      {formatDate(post.date)}
                     </time>
                   )}
                   

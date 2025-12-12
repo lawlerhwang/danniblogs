@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import { formatDate } from '@/lib/format';
 
 interface Post {
   slug: string;
@@ -200,11 +201,7 @@ export function TimeMachine({ posts }: TimeMachineProps) {
                     )}
                     {post.date && (
                       <time className="mt-3 text-sm text-faded">
-                        {new Date(post.date).toLocaleDateString('en-US', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric'
-                        })}
+                        {formatDate(post.date)}
                       </time>
                     )}
                   </div>
@@ -229,8 +226,8 @@ export function TimeMachine({ posts }: TimeMachineProps) {
         const sortedByDate = [...posts].filter(p => p.date).sort((a, b) => 
           new Date(a.date!).getTime() - new Date(b.date!).getTime()
         );
-        const oldestDate = sortedByDate[0]?.date ? new Date(sortedByDate[0].date) : new Date();
-        const newestDate = sortedByDate[sortedByDate.length - 1]?.date ? new Date(sortedByDate[sortedByDate.length - 1].date) : new Date();
+        const oldestDate = sortedByDate[0]?.date ? new Date(sortedByDate[0].date!) : new Date();
+        const newestDate = sortedByDate[sortedByDate.length - 1]?.date ? new Date(sortedByDate[sortedByDate.length - 1].date!) : new Date();
         const totalDays = Math.ceil((newestDate.getTime() - oldestDate.getTime()) / (1000 * 60 * 60 * 24));
         
         // Create tick marks - one per week, max 40
@@ -338,17 +335,17 @@ export function TimeMachine({ posts }: TimeMachineProps) {
                 style={{ transform: 'translateY(-50%)' }}
               >
                 <span className="text-xs text-orange-500 whitespace-nowrap font-medium">
-                  {currentPost?.date && new Date(currentPost.date).toLocaleDateString('en-US', { 
-                    month: 'short', 
-                    day: 'numeric' 
-                  })}
+                  {currentPost?.date && (() => {
+                    const date = new Date(currentPost.date);
+                    return `${date.getFullYear().toString().slice(-2)}年${date.getMonth() + 1}月${date.getDate()}日`;
+                  })()}
                 </span>
               </motion.div>
             </div>
             
             {/* Labels */}
             <div className="absolute -top-5 right-0 text-[10px] text-faded">
-              {oldestDate.toLocaleDateString('en-US', { month: 'short', year: '2-digit' })}
+              {`${oldestDate.getFullYear().toString().slice(-2)}年${oldestDate.getMonth() + 1}月`}
             </div>
             <div className="absolute -bottom-5 right-0 text-[10px] text-orange-500 font-medium">
               Now
