@@ -54,7 +54,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </header>
         </div>
 
-        {post.image && (
+        {/* {post.image && (
           <div className="mt-8 overflow-hidden rounded-lg">
             <Image
               src={post.image}
@@ -65,7 +65,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               priority
             />
           </div>
-        )}
+        )} */}
 
         <div className="prose mt-12 max-w-3xl mx-auto">
           <MDXRemote 
